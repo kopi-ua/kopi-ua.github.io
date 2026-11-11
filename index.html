@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="kopi — трекер витрат для України. Гроші, які рахуються самі.">
+<meta name="theme-color" content="#2F45FF">
+<title>kopi — трекер витрат</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: marketing page for kopi — hero with phone mockup, features, steps, security, download (APK), FAQ, footer */
+:root{
+  --bg:#F3F4F7; --surface:#FFFFFF; --surface-2:#EEEFF4; --line:#E3E5EC; --fg:#0F1016; --muted:#646878;
+  --hero:#2F45FF; --accent:#2F45FF; --accent-soft:#E6E9FF; --accent-fg:#FFFFFF; --sun:#FFC83D; --sun-fg:#1A1400; --sun-soft:#FFF4D6;
+  --ok:#139E6A; --ok-soft:#DDF5EA; --shadow:0 30px 60px -30px rgba(15,16,22,.35);
+  --display:"Unbounded","Inter",system-ui,sans-serif; --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0B0C10; --surface:#15161C; --surface-2:#1E2029; --line:#2A2D38; --fg:#F1F2F6; --muted:#9598A8;
+  --hero:#3246F2; --accent:#7A88FF; --accent-soft:#1F2450; --accent-fg:#0B0C10; --sun:#FFCF52; --sun-fg:#1A1400; --sun-soft:#3A3115;
+  --ok:#3CCB91; --ok-soft:#123326; --shadow:0 30px 60px -30px rgba(0,0,0,.8); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B0C10; --surface:#15161C; --surface-2:#1E2029; --line:#2A2D38; --fg:#F1F2F6; --muted:#9598A8;
+  --hero:#3246F2; --accent:#7A88FF; --accent-soft:#1F2450; --accent-fg:#0B0C10; --sun:#FFCF52; --sun-fg:#1A1400; --sun-soft:#3A3115;
+  --ok:#3CCB91; --ok-soft:#123326; --shadow:0 30px 60px -30px rgba(0,0,0,.8); color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+button,a{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:10px}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.demo{background:var(--sun-soft);font-size:13px;text-align:center;padding-block:7px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+nav.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:18px}
+.logo{font-family:var(--display);font-weight:700;font-size:26px;letter-spacing:-.04em;text-decoration:none}
+.logo i{font-style:normal;color:var(--sun)}
+.navr{display:flex;gap:8px;align-items:center}
+.lang{display:flex;background:var(--surface-2);border-radius:12px;padding:3px}
+.lang button{border:0;background:none;padding:6px 9px;border-radius:9px;font-size:13px;font-weight:600;color:var(--muted)}
+.lang button[aria-pressed="true"]{background:var(--surface);color:var(--fg);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.btn{display:inline-flex;align-items:center;gap:10px;border:0;border-radius:16px;padding:13px 18px;font-weight:700;text-decoration:none;transition:transform .12s}
+.btn:active{transform:scale(.97)}
+.btn.dark{background:var(--fg);color:var(--bg)}
+.btn.sun{background:var(--sun);color:var(--sun-fg)}
+.btn.ghost{background:var(--surface);border:1px solid var(--line)}
+.btn.small{padding:9px 14px;border-radius:12px;font-size:14px}
+.btn small{display:block;font-weight:500;font-size:12px;opacity:.75;line-height:1.2}
+.btn .t{display:flex;flex-direction:column;align-items:flex-start;line-height:1.15;text-align:left}
+.btn svg{width:22px;height:22px;flex:none}
+.soon{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;background:var(--surface-2);color:var(--muted);border-radius:999px;padding:2px 7px;margin-left:4px}
+
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding-block:28px 56px}
+@media (max-width:880px){.hero{grid-template-columns:1fr;gap:28px;padding-block:12px 40px}}
+.kicker{display:inline-flex;gap:8px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600}
+.kicker b{width:8px;height:8px;border-radius:50%;background:var(--ok)}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(38px,6vw,64px);line-height:1.02;letter-spacing:-.04em;margin:18px 0 16px;text-wrap:balance}
+h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--sun) 62%,var(--sun) 92%,transparent 92%)}
+.lead{font-size:18px;color:var(--muted);max-width:52ch;margin:0 0 26px}
+.ctas{display:flex;gap:10px;flex-wrap:wrap}
+.trust{display:flex;gap:16px;flex-wrap:wrap;margin-top:20px;font-size:13.5px;color:var(--muted)}
+.trust span::before{content:"✓ ";color:var(--ok);font-weight:800}
+
+.stage{position:relative;display:flex;justify-content:center;min-width:0}
+.blob{position:absolute;width:440px;height:440px;max-width:100%;border-radius:50%;background:radial-gradient(circle,var(--sun) 0%,transparent 68%);opacity:.55;top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(10px)}
+.phone{position:relative;width:300px;max-width:100%;border-radius:44px;background:var(--fg);padding:10px;box-shadow:var(--shadow)}
+.screen{border-radius:35px;background:var(--bg);overflow:hidden;padding:14px 12px 16px;display:flex;flex-direction:column;gap:10px}
+.notch{width:90px;height:22px;border-radius:12px;background:var(--fg);margin:0 auto 4px}
+.mrow{display:flex;justify-content:space-between;align-items:center}
+.mlogo{font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-.04em}
+.mlogo i{font-style:normal;color:var(--sun)}
+.mava{width:28px;height:28px;border-radius:10px;background:var(--sun);color:var(--sun-fg);display:grid;place-items:center;font-weight:800;font-size:12px}
+.mst{display:flex;gap:8px}
+.mst span{width:40px;height:40px;border-radius:50%;padding:2px;background:conic-gradient(var(--sun),var(--hero),var(--sun));flex:none}
+.mst span i{width:100%;height:100%;border-radius:50%;background:var(--surface);border:2px solid var(--bg);display:grid;place-items:center;font-style:normal;font-size:13px}
+.mhero{border-radius:20px;padding:14px;color:#fff;background:radial-gradient(90% 70% at 100% 0%,rgba(255,200,61,.55),transparent 60%),var(--hero);display:flex;flex-direction:column;gap:8px}
+.mhero small{opacity:.85;font-size:11px}
+.mhero b{font-family:var(--display);font-weight:600;font-size:27px;letter-spacing:-.03em;line-height:1}
+.msegs{display:grid;grid-template-columns:repeat(30,1fr);gap:1.5px}
+.msegs i{height:7px;border-radius:2px;background:rgba(255,255,255,.25)}
+.msegs i.on{background:#fff}
+.mpill{font-size:10.5px;background:rgba(255,255,255,.18);border-radius:999px;padding:3px 8px;font-weight:600;align-self:flex-start}
+.mquick{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.mquick span{background:var(--surface);border:1px solid var(--line);border-radius:13px;height:46px;display:grid;place-items:center;font-size:17px}
+.mcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:11px;display:flex;flex-direction:column;gap:7px}
+.mcard small{font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.mtip{display:flex;gap:8px;align-items:center;font-size:11.5px;font-weight:600}
+.mtip span{width:26px;height:26px;border-radius:9px;display:grid;place-items:center;flex:none;font-size:13px}
+.mtip em{font-style:normal;color:var(--ok);font-family:var(--display);font-size:11px;margin-left:auto;white-space:nowrap}
+.mbar{height:5px;border-radius:9px;background:var(--surface-2);overflow:hidden}
+.mbar i{display:block;height:100%;border-radius:9px}
+.float{position:absolute;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:9px 12px;font-size:13px;font-weight:600;box-shadow:var(--shadow);display:flex;gap:8px;align-items:center;white-space:nowrap;animation:bob 5s ease-in-out infinite}
+.float:nth-of-type(2){animation-delay:-1.6s}.float:nth-of-type(3){animation-delay:-3.2s}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.f1{left:-6%;top:16%}.f2{right:-4%;top:44%}.f3{left:2%;bottom:10%}
+@media (max-width:520px){.f1{left:0;top:6%}.f2{right:0}.f3{left:0;bottom:4%}.float{font-size:12px}}
+
+section.blk{padding-block:56px}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(28px,4vw,40px);letter-spacing:-.03em;line-height:1.1;margin:0 0 10px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 28px;max-width:60ch}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:880px){.grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.grid{grid-template-columns:1fr}}
+.feat{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.feat .ic{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;font-size:22px;background:var(--sun-soft)}
+.feat h3{margin:4px 0 0;font-size:17px}
+.feat p{margin:0;color:var(--muted);font-size:14.5px}
+.banks{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.banks span{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-weight:600;font-size:14px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;counter-reset:st}
+@media (max-width:880px){.steps{grid-template-columns:1fr}}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:20px;display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:start}
+.step::before{counter-increment:st;content:counter(st);width:48px;height:48px;border-radius:16px;background:var(--hero);color:#fff;display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:20px}
+.step h3{margin:2px 0 4px;font-size:17px}.step p{margin:0;color:var(--muted);font-size:14.5px}
+.secbox{background:var(--fg);color:var(--bg);border-radius:32px;padding:36px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+@media (max-width:880px){.secbox{grid-template-columns:1fr;padding:26px}}
+.secbox h2{color:var(--bg)}
+.secbox .sub{color:var(--bg);opacity:.72;margin:0}
+.secbox ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.secbox li{display:flex;gap:12px;align-items:center;background:rgba(127,127,127,.14);border-radius:16px;padding:12px 14px;font-weight:600}
+.secbox li span{font-size:20px}
+.dl{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}
+@media (max-width:880px){.dl{grid-template-columns:1fr}}
+.dlmain{background:radial-gradient(80% 90% at 100% 0%,rgba(255,200,61,.55),transparent 60%),var(--hero);color:#fff;border-radius:28px;padding:28px;display:flex;flex-direction:column;gap:14px}
+.dlmain h3{font-family:var(--display);font-weight:600;font-size:26px;margin:0;letter-spacing:-.02em}
+.dlmain p{margin:0;opacity:.9}
+.dlmain .meta{font-size:13px;opacity:.8}
+.dlmain .btn{align-self:flex-start;background:#fff;color:#111}
+.dlside{display:flex;flex-direction:column;gap:14px}
+.howto{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:20px}
+.howto h3{margin:0 0 10px;font-size:16px}
+.howto ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;color:var(--muted);font-size:14.5px}
+.howto p{margin:10px 0 0;font-size:13px;color:var(--muted)}
+.ios{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:10px;font-size:14.5px;color:var(--muted)}
+.ios b{color:var(--fg)}
+.faq{display:flex;flex-direction:column;gap:10px;max-width:780px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:16px 18px}
+.faq summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:22px;line-height:1;color:var(--muted);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{margin:10px 0 0;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding-block:28px 40px;margin-top:30px}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.foot .links{display:flex;gap:16px;flex-wrap:wrap;font-size:14px}
+.foot .links a{color:var(--muted);text-decoration:none}
+.foot .links a:hover{color:var(--fg)}
+.by{font-size:14px;color:var(--muted)}
+.by b{color:var(--fg)}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:12px 16px;border-radius:16px;font-size:14px;z-index:20;max-width:calc(100% - 32px);text-align:center;animation:tin .3s ease}
+@keyframes tin{from{opacity:0;transform:translate(-50%,10px)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body style="margin:0">
+
+
+<div id="root"></div>
+
+<script>
+(function(){
+const L={
+uk:{a6:'Щоб зберігати зашифровану копію у твоєму Google Диску й переносити дані на новий телефон. kopi бачить лише свою приховану папку, а не твої файли.',q6:'Навіщо вхід через Google?',a5:'Тільки на твоєму телефоні, зашифровані. Резервна копія, теж зашифрована, лежить у прихованій папці твого власного Google Диска. У kopi немає сервера, тож ніхто, крім тебе, даних не бачить.',q5:'Де зберігаються мої дані?',demo:'Так виглядатиме сторінка kopi на Vercel. Кнопки завантаження — демо.',login:'Відкрити kopi',
+ kicker:'Трекер витрат для України',h1a:'Гроші, які',h1b:'рахуються самі',lead:'kopi сам збирає покупки з monobank, ПриватБанку, Apple Pay і Google Pay, показує, скільки ще можна витратити, і підказує, де зекономити.',
+ apk:'Завантажити APK',apk_s:'Android і Samsung · v0.1',soon:'скоро',web:'Відкрити веб-версію',
+ tr1:'Тільки читання',tr2:'Дані тільки на телефоні',tr3:'Без реклами',
+ fl1:'☕ Кава: −1 060 ₴ / міс',fl2:'🔔 Netflix подорожчав',fl3:'🏆 Нова нагорода',
+ m_left:'Можна ще витратити у листопаді',m_day:'≈ 785 ₴ на день',m_less:'Де можна менше',m_t1:'Glovo частіше, ніж зазвичай',m_t2:'Кава щодня',
+ feat_t:'Що вміє kopi',feat_s:'Усе, щоб бачити свої гроші й витрачати спокійно.',
+ f1:'Банки й Wallet',f1d:'monobank — напряму з телефона, інші банки — імпортом виписки, Apple Pay і Google Pay — будь-які картки.',
+ f2:'Поради по магазинах',f2d:'Показує, де саме витрачаєш більше, ніж зазвичай, і скільки збережеш, якщо повернешся до звичного ритму.',
+ f3:'Підписки під контролем',f3d:'Сам знаходить регулярні платежі, помічає подорожчання й дублі сервісів.',
+ f4:'Прогноз і погода гаманця',f4d:'Скільки буде витрачено до кінця місяця і чи вкладешся в ліміт.',
+ f5:'Виклики й нагороди',f5d:'14 викликів, 20 нагород і монети, які міняються на теми, іконки й стікери.',
+ f6:'Сторіс про твої гроші',f6d:'Підсумки тижня й місяця, цікавинки й порада дня — коротко і з гумором.',
+ how_t:'Як це працює',how_s:'Три кроки — і kopi вже рахує.',
+ s1:'Увійди через Google',s1d:'Google потрібен для резервної копії у твоєму Google Диску. А відкривається kopi кодом із 6 цифр, на Android — ще й відбитком.',
+ s2:'Покупки приходять самі',s2d:'monobank підтягується сам, Apple Pay — через Команди, інші банки — імпортом виписки.',
+ s3:'Отримуй підказки',s3d:'Ліміти підбираються за твоїми витратами, а поради показують, де можна менше.',
+ sec_t:'Твої дані — твої',sec_s:'Безпека закладена з першого дня, а не додана потім.',
+ sc1:'Доступ до банків тільки на читання',sc2:'Шифрування AES-256 прямо на телефоні',sc3:'Без сервера kopi: копія — тільки у твоєму Google Диску',sc4:'Код, Face ID і відбиток',sc5:'Без реклами й продажу даних',
+ dl_t:'Завантажити kopi',dl_s:'Android — застосунок (APK), iPhone — веб-версія з Командами.',
+ dl_h:'kopi для Android',dl_p:'Для Android 8.0 і новіших, зокрема Samsung Galaxy.',dl_meta:'kopi-0.1.0.apk · контрольна сума SHA-256 — на сторінці релізу',
+ hw_t:'Як встановити APK',hw1:'Завантаж файл на телефон',hw2:'Відкрий його і дозволь встановлення з цього джерела',hw3:'Натисни «Встановити» і відкрий kopi',
+ hw_n:'Завантажуй APK лише з цієї сторінки — так ти точно отримаєш справжній kopi.',
+ ios_t:'iPhone — вже зараз',ios_d:'Відкрий веб-версію в Safari й додай Команду «Гаманець»: після кожної оплати Apple Pay вона відкриває kopi з уже заповненою сумою й магазином (iOS 17 і новіші).',
+ faq_t:'Питання',
+ q1:'Чи бачить kopi мої паролі або може переказати гроші?',a1:'Ні. kopi не може переказати гроші, а паролів від банку не бачить: monobank підключається особистим токеном лише на читання.',
+ q2:'Чи працює kopi на iPhone?',a2:'Так, уже зараз. Відкрий веб-версію в Safari й увімкни Команду для Apple Pay: оплата сама потрапить у kopi. Окремий застосунок з App Store — пізніше.',
+ q3:'Чи безпечно встановлювати APK?',a3:'Так, якщо завантажувати його лише з офіційної сторінки kopi. Android попросить дозволу на встановлення — це нормально.',
+ q4:'Які банки підтримуються?',a4:'monobank — напряму з телефона за особистим токеном. ПриватБанк, ПУМБ, Укрсиббанк і А-Банк — поки імпортом виписки. Apple Pay — через «Команди».',
+ by:'Створила',tg:'Написати в Telegram',pp:'Політика конфіденційності',terms:'Умови',store:'Що ми зберігаємо',
+ t_apk:'Демо: справжній APK зʼявиться після збірки застосунку',t_soon:'Скоро — стежте за оновленнями',t_login:'Вхід через Google або passkey — у справжній версії',t_page:'Сторінка в розробці'},
+en:{a6:'To keep an encrypted backup in your Google Drive and move your data to a new phone. kopi sees only its own hidden folder, not your files.',q6:'Why sign in with Google?',a5:'Only on your phone, encrypted. The backup, also encrypted, sits in a hidden folder of your own Google Drive. kopi has no server, so nobody but you can see your data.',q5:'Where is my data stored?',demo:'This is how the kopi page will look on Vercel. Download buttons are a demo.',login:'Open kopi',
+ kicker:'A spending tracker for Ukraine',h1a:'Money that',h1b:'counts itself',lead:'kopi gathers your purchases from monobank, PrivatBank, Apple Pay and Google Pay, shows how much you can still spend, and tells you where to save.',
+ apk:'Download APK',apk_s:'Android and Samsung · v0.1',soon:'soon',web:'Open the web version',
+ tr1:'Read-only',tr2:'Data stays on your phone',tr3:'No ads',
+ fl1:'☕ Coffee: −1,060 ₴ / mo',fl2:'🔔 Netflix got pricier',fl3:'🏆 New badge',
+ m_left:'Still yours to spend in November',m_day:'≈ 785 ₴ a day',m_less:'Where to cut back',m_t1:'More Glovo than usual',m_t2:'Daily coffee',
+ feat_t:'What kopi does',feat_s:'Everything you need to see your money and spend calmly.',
+ f1:'Banks & Wallet',f1d:'monobank straight from your phone, other banks by statement import, Apple Pay and Google Pay — any card.',
+ f2:'Shop-by-shop tips',f2d:'Shows exactly where you spend more than usual and how much you’d keep by going back to your normal rhythm.',
+ f3:'Subscriptions in check',f3d:'Finds regular payments on its own and spots price rises and duplicate services.',
+ f4:'Forecast & wallet weather',f4d:'How much you’ll have spent by month end and whether you’ll stay within the limit.',
+ f5:'Challenges & badges',f5d:'14 challenges, 20 badges and coins you trade for themes, icons and stickers.',
+ f6:'Stories about your money',f6d:'Weekly and monthly recaps, fun facts and a tip of the day — short and funny.',
+ how_t:'How it works',how_s:'Three steps and kopi is already counting.',
+ s1:'Sign in with Google',s1d:'Google is used for the backup in your own Google Drive. kopi itself opens with a 6-digit code, and with your fingerprint on Android.',
+ s2:'Purchases arrive by themselves',s2d:'monobank syncs by itself, Apple Pay through Shortcuts, other banks by statement import.',
+ s3:'Get the hints',s3d:'Limits are suggested from your spending, and tips show where you can spend less.',
+ sec_t:'Your data is yours',sec_s:'Security is built in from day one, not bolted on later.',
+ sc1:'Read-only bank access',sc2:'AES-256 encryption right on the phone',sc3:'No kopi server: the backup lives only in your Google Drive',sc4:'Passcode, Face ID and fingerprint',sc5:'No ads, no data selling',
+ dl_t:'Download kopi',dl_s:'Android: the app (APK). iPhone: the web version with Shortcuts.',
+ dl_h:'kopi for Android',dl_p:'For Android 8.0 and newer, Samsung Galaxy included.',dl_meta:'kopi-0.1.0.apk · SHA-256 checksum on the release page',
+ hw_t:'How to install the APK',hw1:'Download the file to your phone',hw2:'Open it and allow installs from this source',hw3:'Tap “Install” and open kopi',
+ hw_n:'Only download the APK from this page — that way you know it’s the real kopi.',
+ ios_t:'iPhone — available now',ios_d:'Open the web version in Safari and add the Wallet Shortcut: after every Apple Pay payment it opens kopi with the amount and shop already filled in (iOS 17 and later).',
+ faq_t:'Questions',
+ q1:'Can kopi see my passwords or move money?',a1:'No. kopi can’t move money and never sees your bank password: monobank connects with a personal read-only token.',
+ q2:'Does kopi work on iPhone?',a2:'Yes, today. Open the web version in Safari and turn on the Apple Pay Shortcut: payments land in kopi by themselves. An App Store app comes later.',
+ q3:'Is it safe to install the APK?',a3:'Yes, as long as you download it from the official kopi page. Android will ask for install permission — that’s normal.',
+ q4:'Which banks are supported?',a4:'monobank straight from your phone with a personal token. PrivatBank, PUMB, Ukrsibbank and A-Bank by statement import for now. Apple Pay through Shortcuts.',
+ by:'Made by',tg:'Message on Telegram',pp:'Privacy policy',terms:'Terms',store:'What we store',
+ t_apk:'Demo: the real APK appears once the app is built',t_soon:'Coming soon — stay tuned',t_login:'Google or passkey sign-in — in the real version',t_page:'Page in progress'},
+ru:{a6:'Чтобы хранить зашифрованную копию в твоём Google Диске и переносить данные на новый телефон. kopi видит только свою скрытую папку, а не твои файлы.',q6:'Зачем вход через Google?',a5:'Только на твоём телефоне, зашифрованы. Резервная копия, тоже зашифрованная, лежит в скрытой папке твоего собственного Google Диска. У kopi нет сервера, поэтому никто, кроме тебя, данных не видит.',q5:'Где хранятся мои данные?',demo:'Так будет выглядеть страница kopi на Vercel. Кнопки загрузки — демо.',login:'Открыть kopi',
+ kicker:'Трекер трат для Украины',h1a:'Деньги, которые',h1b:'считаются сами',lead:'kopi сам собирает покупки из monobank, ПриватБанка, Apple Pay и Google Pay, показывает, сколько ещё можно потратить, и подсказывает, где сэкономить.',
+ apk:'Скачать APK',apk_s:'Android и Samsung · v0.1',soon:'скоро',web:'Открыть веб-версию',
+ tr1:'Только чтение',tr2:'Данные только на телефоне',tr3:'Без рекламы',
+ fl1:'☕ Кофе: −1 060 ₴ / мес',fl2:'🔔 Netflix подорожал',fl3:'🏆 Новая награда',
+ m_left:'Можно ещё потратить в ноябре',m_day:'≈ 785 ₴ в день',m_less:'Где можно меньше',m_t1:'Glovo чаще обычного',m_t2:'Кофе каждый день',
+ feat_t:'Что умеет kopi',feat_s:'Всё, чтобы видеть свои деньги и тратить спокойно.',
+ f1:'Банки и Wallet',f1d:'monobank — напрямую с телефона, другие банки — импортом выписки, Apple Pay и Google Pay — любые карты.',
+ f2:'Советы по магазинам',f2d:'Показывает, где именно тратишь больше обычного и сколько сохранишь, если вернёшься к привычному ритму.',
+ f3:'Подписки под контролем',f3d:'Сам находит регулярные платежи, замечает подорожания и дубли сервисов.',
+ f4:'Прогноз и погода кошелька',f4d:'Сколько будет потрачено к концу месяца и уложишься ли в лимит.',
+ f5:'Челленджи и награды',f5d:'14 челленджей, 20 наград и монеты, которые меняются на темы, иконки и стикеры.',
+ f6:'Сторис о твоих деньгах',f6d:'Итоги недели и месяца, интересные факты и совет дня — коротко и с юмором.',
+ how_t:'Как это работает',how_s:'Три шага — и kopi уже считает.',
+ s1:'Войди через Google',s1d:'Google нужен для резервной копии в твоём Google Диске. А открывается kopi кодом из 6 цифр, на Android — ещё и отпечатком.',
+ s2:'Покупки приходят сами',s2d:'monobank подтягивается сам, Apple Pay — через Команды, другие банки — импортом выписки.',
+ s3:'Получай подсказки',s3d:'Лимиты подбираются по твоим тратам, а советы показывают, где можно меньше.',
+ sec_t:'Твои данные — твои',sec_s:'Безопасность заложена с первого дня, а не добавлена потом.',
+ sc1:'Доступ к банкам только на чтение',sc2:'Шифрование AES-256 прямо на телефоне',sc3:'Без сервера kopi: копия — только в твоём Google Диске',sc4:'Код, Face ID и отпечаток',sc5:'Без рекламы и продажи данных',
+ dl_t:'Скачать kopi',dl_s:'Android — приложение (APK), iPhone — веб-версия с Командами.',
+ dl_h:'kopi для Android',dl_p:'Для Android 8.0 и новее, включая Samsung Galaxy.',dl_meta:'kopi-0.1.0.apk · контрольная сумма SHA-256 — на странице релиза',
+ hw_t:'Как установить APK',hw1:'Скачай файл на телефон',hw2:'Открой его и разреши установку из этого источника',hw3:'Нажми «Установить» и открой kopi',
+ hw_n:'Скачивай APK только с этой страницы — так ты точно получишь настоящий kopi.',
+ ios_t:'iPhone — уже сейчас',ios_d:'Открой веб-версию в Safari и добавь Команду «Wallet»: после каждой оплаты Apple Pay она открывает kopi с уже заполненной суммой и магазином (iOS 17 и новее).',
+ faq_t:'Вопросы',
+ q1:'Видит ли kopi мои пароли и может ли перевести деньги?',a1:'Нет. kopi не может перевести деньги и не видит паролей от банка: monobank подключается личным токеном только на чтение.',
+ q2:'Работает ли kopi на iPhone?',a2:'Да, уже сейчас. Открой веб-версию в Safari и включи Команду для Apple Pay: оплата сама попадёт в kopi. Отдельное приложение из App Store — позже.',
+ q3:'Безопасно ли устанавливать APK?',a3:'Да, если скачивать его только с официальной страницы kopi. Android попросит разрешение на установку — это нормально.',
+ q4:'Какие банки поддерживаются?',a4:'monobank — напрямую с телефона по личному токену. ПриватБанк, ПУМБ, Укрсиббанк и А-Банк — пока импортом выписки. Apple Pay — через «Команды».',
+ by:'Создала',tg:'Написать в Telegram',pp:'Политика конфиденциальности',terms:'Условия',store:'Что мы храним',
+ t_apk:'Демо: настоящий APK появится после сборки приложения',t_soon:'Скоро — следите за обновлениями',t_login:'Вход через Google или passkey — в настоящей версии',t_page:'Страница в разработке'}};
+let lang='uk';try{const v=localStorage.getItem('kopi.lang');if(L[v])lang=v}catch(_){}
+const t=k=>L[lang][k]??L.uk[k]??k;
+const APP='./app/';
+const APK='https://github.com/KarinaKaramel/kopi-site/releases/latest';
+const IC={android:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 9h10v8a1 1 0 0 1-1 1h-1v3h-2v-3h-2v3H9v-3H8a1 1 0 0 1-1-1V9zm-2 0h1v6H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1zm13 0h1a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-1V9zM8.2 3.6l.9 1.4A5 5 0 0 1 12 4a5 5 0 0 1 2.9 1l.9-1.4.8.5-.9 1.4A5 5 0 0 1 17 8H7a5 5 0 0 1 1.3-2.5l-.9-1.4.8-.5zM10 6.3a.7.7 0 1 0 0 1.4.7.7 0 0 0 0-1.4zm4 0a.7.7 0 1 0 0 1.4.7.7 0 0 0 0-1.4z"/></svg>',
+ apple:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.5 2-3.6-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.6zM14.1 5.5c.6-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.4-.6.7-1.1 1.8-1 2.9 1.1.1 2.2-.6 2.8-1.3z"/></svg>',
+ play:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3.5v17a1 1 0 0 0 1.5.9l14.7-8.5a1 1 0 0 0 0-1.8L5.5 2.6A1 1 0 0 0 4 3.5z"/></svg>'};
+function toast(m){document.querySelectorAll('.toast').forEach(x=>x.remove());const e=document.createElement('div');e.className='toast';e.textContent=m;document.body.appendChild(e);setTimeout(()=>e.remove(),2800)}
+const apkBtn=(cls='dark')=>`<button class="btn ${cls}" data-a="apk">${IC.android}<span class="t">${t('apk')}<small>${t('apk_s')}</small></span></button>`;
+function render(){
+  document.documentElement.lang=lang;
+  document.getElementById('root').innerHTML=`
+  <div class="wrap">
+  <nav class="top"><a class="logo" href="#top">kopi<i>.</i></a><div class="navr"><div class="lang" role="group" aria-label="Language">${[['uk','UA'],['en','EN'],['ru','RU']].map(([k,n])=>`<button data-a="lang" data-l="${k}" aria-pressed="${lang===k}">${n}</button>`).join('')}</div><a class="btn ghost small" href="${APP}">${t('login')}</a></div></nav>
+  <header class="hero" id="top"><div>
+   <span class="kicker"><b></b>${t('kicker')}</span>
+   <h1>${t('h1a')} <em>${t('h1b')}</em></h1>
+   <p class="lead">${t('lead')}</p>
+   <div class="ctas">${apkBtn('dark')}</div>
+   <div class="ctas" style="margin-top:10px"><a class="btn sun small" href="${APP}" >${t('web')} →</a></div>
+   <div class="trust"><span>${t('tr1')}</span><span>${t('tr2')}</span><span>${t('tr3')}</span></div></div>
+   <div class="stage"><div class="blob"></div>
+    <div class="phone"><div class="screen"><div class="notch"></div>
+     <div class="mrow"><span class="mlogo">kopi<i>.</i></span><span class="mava">K</span></div>
+     <div class="mst">${['📅','7','💡','🔁','✨'].map(x=>`<span><i>${x}</i></span>`).join('')}</div>
+     <div class="mhero"><small>${t('m_left')}</small><b>14 910 ₴</b><div class="msegs">${Array.from({length:30},(_,i)=>`<i class="${i<16?'on':''}"></i>`).join('')}</div><span class="mpill">${t('m_day')}</span></div>
+     <div class="mquick"><span>＋</span><span>🫙</span><span>🤔</span><span>👁️</span></div>
+     <div class="mcard"><small>${t('m_less')}</small>
+      <div class="mtip"><span style="background:#FDE4E4;color:#E0393E">↗</span>${t('m_t1')}<em>−1 270 ₴</em></div>
+      <div class="mtip"><span style="background:var(--sun-soft)">☕</span>${t('m_t2')}<em>−1 060 ₴</em></div></div>
+     <div class="mcard"><div class="mbar"><i style="width:40%;background:var(--ok)"></i></div><div class="mbar"><i style="width:78%;background:#C77800"></i></div><div class="mbar"><i style="width:100%;background:#E0393E"></i></div></div>
+    </div></div>
+    <div class="float f1">${t('fl1')}</div><div class="float f2">${t('fl2')}</div><div class="float f3">${t('fl3')}</div>
+   </div></header>
+
+  <section class="blk" id="features"><h2>${t('feat_t')}</h2><p class="sub">${t('feat_s')}</p>
+   <div class="grid">${[['🏦',1],['🎯',2],['🔁',3],['⛅',4],['🏆',5],['🎬',6]].map(([e,i])=>`<article class="feat"><span class="ic">${e}</span><h3>${t('f'+i)}</h3><p>${t('f'+i+'d')}</p></article>`).join('')}</div>
+   <div class="banks">${['monobank','ПриватБанк','ПУМБ','Укрсиббанк','А-Банк','Apple Pay','Google Pay','Samsung Pay'].map(b=>`<span>${b}</span>`).join('')}</div></section>
+
+  <section class="blk" id="how"><h2>${t('how_t')}</h2><p class="sub">${t('how_s')}</p>
+   <div class="steps">${[1,2,3].map(i=>`<div class="step"><div><h3>${t('s'+i)}</h3><p>${t('s'+i+'d')}</p></div></div>`).join('')}</div></section>
+
+  <section class="blk" id="security"><div class="secbox"><div><h2>${t('sec_t')}</h2><p class="sub">${t('sec_s')}</p></div>
+   <ul>${[['🔒',1],['🔐',2],['🇪🇺',3],['🙂',4],['🚫',5]].map(([e,i])=>`<li><span>${e}</span>${t('sc'+i)}</li>`).join('')}</ul></div></section>
+
+  <section class="blk" id="download"><h2>${t('dl_t')}</h2><p class="sub">${t('dl_s')}</p>
+   <div class="dl"><div class="dlmain"><h3>${t('dl_h')}</h3><p>${t('dl_p')}</p>${apkBtn('')}<span class="meta">${t('dl_meta')}</span></div>
+    <div class="dlside"><div class="howto"><h3>${t('hw_t')}</h3><ol><li>${t('hw1')}</li><li>${t('hw2')}</li><li>${t('hw3')}</li></ol><p>${t('hw_n')}</p></div>
+     <div class="ios"><b>📱 ${t('ios_t')}</b>${t('ios_d')}<a class="btn ghost small" href="${APP}"  style="align-self:flex-start">${t('web')} →</a></div></div></div></section>
+
+  <section class="blk" id="faq"><h2>${t('faq_t')}</h2><div class="faq">${[5,6,2,1,3,4].map(i=>`<details ${i===5?'open':''}><summary>${t('q'+i)}</summary><p>${t('a'+i)}</p></details>`).join('')}</div></section>
+
+  <footer><div class="foot"><div><a class="logo" href="#top" style="font-size:22px">kopi<i>.</i></a><div class="by">© 2026 kopi · ${t('by')} <b>Карина Белик</b></div></div>
+   <div class="links"><a href="tg://resolve?domain=karinella_karamel" data-a="tg">✈️ ${t('tg')}</a><a href="#" data-a="page">${t('pp')}</a><a href="#" data-a="page">${t('terms')}</a><a href="#" data-a="page">${t('store')}</a></div></div></footer>
+  </div>`;
+}
+document.addEventListener('click',e=>{const el=e.target.closest('[data-a]');if(!el)return;const a=el.dataset.a;
+  if(a==='lang'){lang=el.dataset.l;try{localStorage.setItem('kopi.lang',lang)}catch(_){}render();return}
+  if(a==='apk'){window.location.href=APK;return}
+  if(a==='soon'){toast(t('t_soon'));return}
+  if(a==='login'){toast(t('t_login'));return}
+  if(a==='page'){e.preventDefault();toast(t('t_page'));return}
+  if(a==='tg'){const t0=Date.now();setTimeout(()=>{if(!document.hidden&&Date.now()-t0<2500){try{window.open('https://t.me/karinella_karamel','_blank')}catch(_){}}},900);return}
+});
+render();
+})();
+</script>
+
+</body>
+</html>
