@@ -1,6 +1,6 @@
-# kopi-site
+# kopi-ua.github.io
 
-Public site of [kopi](https://karinakaramel.github.io/kopi-site/) — the spending tracker for Ukraine.
+Public site of [kopi](https://kopi-ua.github.io/) — the spending tracker for Ukraine.
 
 - `index.html` — landing page
 - `app/` — the web version (built automatically from the private app repo; do not edit by hand)
