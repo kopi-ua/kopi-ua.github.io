@@ -305,7 +305,7 @@ function render(){
   <section class="blk" id="faq"><h2>${t('faq_t')}</h2><div class="faq">${[5,6,2,1,3,4].map(i=>`<details ${i===5?'open':''}><summary>${t('q'+i)}</summary><p>${t('a'+i)}</p></details>`).join('')}</div></section>
 
   <footer><div class="foot"><div><a class="logo" href="#top" style="font-size:22px">kopi<i>.</i></a><div class="by">© 2026 kopi · ${t('by')} <b>Карина Белик</b></div></div>
-   <div class="links"><a href="tg://resolve?domain=karinella_karamel" data-a="tg">✈️ ${t('tg')}</a><a href="#" data-a="page">${t('pp')}</a><a href="#" data-a="page">${t('terms')}</a><a href="#" data-a="page">${t('store')}</a></div></div></footer>
+   <div class="links"><a href="tg://resolve?domain=karinella_karamel" data-a="tg">✈️ ${t('tg')}</a><a href="privacy.html">${t('pp')}</a><a href="privacy.html#terms">${t('terms')}</a><a href="privacy.html#data">${t('store')}</a></div></div></footer>
   </div>`;
 }
 document.addEventListener('click',e=>{const el=e.target.closest('[data-a]');if(!el)return;const a=el.dataset.a;
