@@ -3,11 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="kopi — трекер витрат для України. Гроші, які рахуються самі.">
+<meta name="description" content="kopi — безкоштовний трекер витрат для України. monobank і Apple Pay автоматично, виписки ПриватБанку, ПУМБ, А-Банку й Укрсиббанку, ліміти, прогноз, поради й підписки. Дані тільки на телефоні, зашифровані.">
+<meta name="keywords" content="трекер витрат, облік витрат, бюджет, monobank, Apple Pay, ПриватБанк, учет расходов, приложение для бюджета, Україна, kopi">
+<meta name="author" content="Карина Белик">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://kopi-ua.github.io/">
 <meta name="theme-color" content="#2F45FF">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="kopi">
+<meta property="og:url" content="https://kopi-ua.github.io/">
+<meta property="og:title" content="kopi — трекер витрат для України">
+<meta property="og:description" content="Гроші, які рахуються самі: monobank і Apple Pay, ліміти, прогноз і поради. Безкоштовно, без реклами, дані тільки на телефоні.">
+<meta property="og:image" content="https://kopi-ua.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:locale:alternate" content="ru_UA">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="kopi — трекер витрат для України">
+<meta name="twitter:description" content="monobank і Apple Pay, ліміти, прогноз і поради. Безкоштовно, дані тільки на телефоні.">
+<meta name="twitter:image" content="https://kopi-ua.github.io/og.png">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<title>kopi — трекер витрат</title>
+<title>kopi — трекер витрат для України: облік витрат з monobank і Apple Pay</title>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"kopi","alternateName":"kopi — трекер витрат","url":"https://kopi-ua.github.io/","applicationCategory":"FinanceApplication","operatingSystem":"Android, iOS (Safari)","inLanguage":["uk","ru","en"],"description":"Безкоштовний трекер витрат для України: monobank і Apple Pay автоматично, імпорт виписок інших банків, ліміти, прогноз, поради, підписки. Дані зберігаються тільки на телефоні й зашифровані.","offers":{"@type":"Offer","price":"0","priceCurrency":"UAH"},"author":{"@type":"Person","name":"Карина Белик","sameAs":"https://t.me/karinella_karamel"},"image":"https://kopi-ua.github.io/og.png","downloadUrl":"https://github.com/kopi-ua/kopi-ua.github.io/releases/latest"}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap">
 <style>
@@ -156,23 +178,39 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;margin-top:30px}
 <body style="margin:0">
 
 
-<div id="root"></div>
+<div id="root">
+<main style="max-width:760px;margin:0 auto;padding:24px 16px;font-family:system-ui,sans-serif">
+<h1>kopi — трекер витрат для України</h1>
+<p>Гроші, які рахуються самі. kopi сам підтягує покупки з monobank і Apple Pay, імпортує виписки ПриватБанку, ПУМБ, А-Банку й Укрсиббанку, показує, скільки ще можна витратити цього місяця, і підказує, де зекономити.</p>
+<h2>Що вміє kopi</h2>
+<ul>
+<li>monobank напряму з телефона, Apple Pay через «Команди», виписки інших банків у CSV або Excel</li>
+<li>Розумний підбір лімітів, прогноз до кінця місяця і «погода гаманця»</li>
+<li>Поради по магазинах, підписки й регулярні платежі, «Чи можу я собі дозволити?»</li>
+<li>Цілі, скарбничка округлень, челенджі, нагороди й сторіс про твої гроші</li>
+<li>Без сервера і реклами: дані тільки на телефоні, шифрування AES-256, копія у твоєму Google Диску</li>
+</ul>
+<p><a href="app/">Відкрити веб-версію kopi</a> · <a href="https://github.com/kopi-ua/kopi-ua.github.io/releases/latest">Завантажити APK для Android</a> · <a href="privacy.html">Конфіденційність</a></p>
+<p lang="ru">kopi — бесплатное приложение для учёта расходов в Украине: monobank и Apple Pay, лимиты, прогноз, советы и подписки. Данные только на телефоне.</p>
+<p lang="en">kopi is a free spending tracker for Ukraine: monobank and Apple Pay, limits, forecast, tips and subscriptions. Your data stays on your phone.</p>
+</main>
+</div>
 
 <script>
 (function(){
 const L={
 uk:{a6:'Щоб зберігати зашифровану копію у твоєму Google Диску й переносити дані на новий телефон. kopi бачить лише свою приховану папку, а не твої файли.',q6:'Навіщо вхід через Google?',a5:'Тільки на твоєму телефоні, зашифровані. Резервна копія, теж зашифрована, лежить у прихованій папці твого власного Google Диска. У kopi немає сервера, тож ніхто, крім тебе, даних не бачить.',q5:'Де зберігаються мої дані?',demo:'Так виглядатиме сторінка kopi на Vercel. Кнопки завантаження — демо.',login:'Відкрити kopi',
- kicker:'Трекер витрат для України',h1a:'Гроші, які',h1b:'рахуються самі',lead:'kopi сам збирає покупки з monobank, ПриватБанку, Apple Pay і Google Pay, показує, скільки ще можна витратити, і підказує, де зекономити.',
- apk:'Завантажити APK',apk_s:'Android і Samsung · v0.1',soon:'скоро',web:'Відкрити веб-версію',
+ kicker:'Трекер витрат для України',h1a:'Гроші, які',h1b:'рахуються самі',lead:'kopi сам підтягує покупки з monobank і Apple Pay, імпортує виписки інших банків, показує, скільки ще можна витратити, і підказує, де зекономити.',
+ apk:'Завантажити APK',apk_s:'Android і Samsung',soon:'скоро',web:'Відкрити веб-версію',
  tr1:'Тільки читання',tr2:'Дані тільки на телефоні',tr3:'Без реклами',
  fl1:'☕ Кава: −1 060 ₴ / міс',fl2:'🔔 Netflix подорожчав',fl3:'🏆 Нова нагорода',
  m_left:'Можна ще витратити у листопаді',m_day:'≈ 785 ₴ на день',m_less:'Де можна менше',m_t1:'Glovo частіше, ніж зазвичай',m_t2:'Кава щодня',
  feat_t:'Що вміє kopi',feat_s:'Усе, щоб бачити свої гроші й витрачати спокійно.',
- f1:'Банки й Wallet',f1d:'monobank — напряму з телефона, інші банки — імпортом виписки, Apple Pay і Google Pay — будь-які картки.',
+ f1:'Банки й Wallet',f1d:'monobank — напряму з телефона, Apple Pay — через «Команди» з будь-якою карткою, інші банки — імпортом виписки CSV або Excel.',
  f2:'Поради по магазинах',f2d:'Показує, де саме витрачаєш більше, ніж зазвичай, і скільки збережеш, якщо повернешся до звичного ритму.',
  f3:'Підписки під контролем',f3d:'Сам знаходить регулярні платежі, помічає подорожчання й дублі сервісів.',
  f4:'Прогноз і погода гаманця',f4d:'Скільки буде витрачено до кінця місяця і чи вкладешся в ліміт.',
- f5:'Виклики й нагороди',f5d:'14 викликів, 20 нагород і монети, які міняються на теми, іконки й стікери.',
+ f5:'Челенджі й нагороди',f5d:'Челенджі за твоїми покупками, досягнення й монети, які міняються на теми для головної.',
  f6:'Сторіс про твої гроші',f6d:'Підсумки тижня й місяця, цікавинки й порада дня — коротко і з гумором.',
  how_t:'Як це працює',how_s:'Три кроки — і kopi вже рахує.',
  s1:'Увійди через Google',s1d:'Google потрібен для резервної копії у твоєму Google Диску. А відкривається kopi кодом із 6 цифр, на Android — ще й відбитком.',
@@ -181,7 +219,7 @@ uk:{a6:'Щоб зберігати зашифровану копію у твоє�
  sec_t:'Твої дані — твої',sec_s:'Безпека закладена з першого дня, а не додана потім.',
  sc1:'Доступ до банків тільки на читання',sc2:'Шифрування AES-256 прямо на телефоні',sc3:'Без сервера kopi: копія — тільки у твоєму Google Диску',sc4:'Код, Face ID і відбиток',sc5:'Без реклами й продажу даних',
  dl_t:'Завантажити kopi',dl_s:'Android — застосунок (APK), iPhone — веб-версія з Командами.',
- dl_h:'kopi для Android',dl_p:'Для Android 8.0 і новіших, зокрема Samsung Galaxy.',dl_meta:'kopi-0.1.0.apk · контрольна сума SHA-256 — на сторінці релізу',
+ dl_h:'kopi для Android',dl_p:'Для Android 8.0 і новіших, зокрема Samsung Galaxy.',dl_meta:'Остання версія · контрольна сума SHA-256 — на сторінці релізу',
  hw_t:'Як встановити APK',hw1:'Завантаж файл на телефон',hw2:'Відкрий його і дозволь встановлення з цього джерела',hw3:'Натисни «Встановити» і відкрий kopi',
  hw_n:'Завантажуй APK лише з цієї сторінки — так ти точно отримаєш справжній kopi.',
  ios_t:'iPhone — вже зараз',ios_d:'Відкрий веб-версію в Safari й додай Команду «Гаманець»: після кожної оплати Apple Pay вона відкриває kopi з уже заповненою сумою й магазином (iOS 17 і новіші).',
@@ -193,17 +231,17 @@ uk:{a6:'Щоб зберігати зашифровану копію у твоє�
  by:'Створила',tg:'Написати в Telegram',pp:'Політика конфіденційності',terms:'Умови',store:'Що ми зберігаємо',
  t_apk:'Демо: справжній APK зʼявиться після збірки застосунку',t_soon:'Скоро — стежте за оновленнями',t_login:'Вхід через Google або passkey — у справжній версії',t_page:'Сторінка в розробці'},
 en:{a6:'To keep an encrypted backup in your Google Drive and move your data to a new phone. kopi sees only its own hidden folder, not your files.',q6:'Why sign in with Google?',a5:'Only on your phone, encrypted. The backup, also encrypted, sits in a hidden folder of your own Google Drive. kopi has no server, so nobody but you can see your data.',q5:'Where is my data stored?',demo:'This is how the kopi page will look on Vercel. Download buttons are a demo.',login:'Open kopi',
- kicker:'A spending tracker for Ukraine',h1a:'Money that',h1b:'counts itself',lead:'kopi gathers your purchases from monobank, PrivatBank, Apple Pay and Google Pay, shows how much you can still spend, and tells you where to save.',
- apk:'Download APK',apk_s:'Android and Samsung · v0.1',soon:'soon',web:'Open the web version',
+ kicker:'A spending tracker for Ukraine',h1a:'Money that',h1b:'counts itself',lead:'kopi pulls in purchases from monobank and Apple Pay, imports other banks’ statements, shows how much you can still spend and tells you where to save.',
+ apk:'Download APK',apk_s:'Android and Samsung',soon:'soon',web:'Open the web version',
  tr1:'Read-only',tr2:'Data stays on your phone',tr3:'No ads',
  fl1:'☕ Coffee: −1,060 ₴ / mo',fl2:'🔔 Netflix got pricier',fl3:'🏆 New badge',
  m_left:'Still yours to spend in November',m_day:'≈ 785 ₴ a day',m_less:'Where to cut back',m_t1:'More Glovo than usual',m_t2:'Daily coffee',
  feat_t:'What kopi does',feat_s:'Everything you need to see your money and spend calmly.',
- f1:'Banks & Wallet',f1d:'monobank straight from your phone, other banks by statement import, Apple Pay and Google Pay — any card.',
+ f1:'Banks & Wallet',f1d:'monobank straight from the phone, Apple Pay via Shortcuts with any card, other banks by importing a CSV or Excel statement.',
  f2:'Shop-by-shop tips',f2d:'Shows exactly where you spend more than usual and how much you’d keep by going back to your normal rhythm.',
  f3:'Subscriptions in check',f3d:'Finds regular payments on its own and spots price rises and duplicate services.',
  f4:'Forecast & wallet weather',f4d:'How much you’ll have spent by month end and whether you’ll stay within the limit.',
- f5:'Challenges & badges',f5d:'14 challenges, 20 badges and coins you trade for themes, icons and stickers.',
+ f5:'Challenges and rewards',f5d:'Challenges based on your purchases, badges and coins you swap for Home themes.',
  f6:'Stories about your money',f6d:'Weekly and monthly recaps, fun facts and a tip of the day — short and funny.',
  how_t:'How it works',how_s:'Three steps and kopi is already counting.',
  s1:'Sign in with Google',s1d:'Google is used for the backup in your own Google Drive. kopi itself opens with a 6-digit code, and with your fingerprint on Android.',
@@ -212,7 +250,7 @@ en:{a6:'To keep an encrypted backup in your Google Drive and move your data to a
  sec_t:'Your data is yours',sec_s:'Security is built in from day one, not bolted on later.',
  sc1:'Read-only bank access',sc2:'AES-256 encryption right on the phone',sc3:'No kopi server: the backup lives only in your Google Drive',sc4:'Passcode, Face ID and fingerprint',sc5:'No ads, no data selling',
  dl_t:'Download kopi',dl_s:'Android: the app (APK). iPhone: the web version with Shortcuts.',
- dl_h:'kopi for Android',dl_p:'For Android 8.0 and newer, Samsung Galaxy included.',dl_meta:'kopi-0.1.0.apk · SHA-256 checksum on the release page',
+ dl_h:'kopi for Android',dl_p:'For Android 8.0 and newer, Samsung Galaxy included.',dl_meta:'Latest version · SHA-256 checksum on the release page',
  hw_t:'How to install the APK',hw1:'Download the file to your phone',hw2:'Open it and allow installs from this source',hw3:'Tap “Install” and open kopi',
  hw_n:'Only download the APK from this page — that way you know it’s the real kopi.',
  ios_t:'iPhone — available now',ios_d:'Open the web version in Safari and add the Wallet Shortcut: after every Apple Pay payment it opens kopi with the amount and shop already filled in (iOS 17 and later).',
@@ -224,17 +262,17 @@ en:{a6:'To keep an encrypted backup in your Google Drive and move your data to a
  by:'Made by',tg:'Message on Telegram',pp:'Privacy policy',terms:'Terms',store:'What we store',
  t_apk:'Demo: the real APK appears once the app is built',t_soon:'Coming soon — stay tuned',t_login:'Google or passkey sign-in — in the real version',t_page:'Page in progress'},
 ru:{a6:'Чтобы хранить зашифрованную копию в твоём Google Диске и переносить данные на новый телефон. kopi видит только свою скрытую папку, а не твои файлы.',q6:'Зачем вход через Google?',a5:'Только на твоём телефоне, зашифрованы. Резервная копия, тоже зашифрованная, лежит в скрытой папке твоего собственного Google Диска. У kopi нет сервера, поэтому никто, кроме тебя, данных не видит.',q5:'Где хранятся мои данные?',demo:'Так будет выглядеть страница kopi на Vercel. Кнопки загрузки — демо.',login:'Открыть kopi',
- kicker:'Трекер трат для Украины',h1a:'Деньги, которые',h1b:'считаются сами',lead:'kopi сам собирает покупки из monobank, ПриватБанка, Apple Pay и Google Pay, показывает, сколько ещё можно потратить, и подсказывает, где сэкономить.',
- apk:'Скачать APK',apk_s:'Android и Samsung · v0.1',soon:'скоро',web:'Открыть веб-версию',
+ kicker:'Трекер трат для Украины',h1a:'Деньги, которые',h1b:'считаются сами',lead:'kopi сам подтягивает покупки из monobank и Apple Pay, импортирует выписки других банков, показывает, сколько ещё можно потратить, и подсказывает, где сэкономить.',
+ apk:'Скачать APK',apk_s:'Android и Samsung',soon:'скоро',web:'Открыть веб-версию',
  tr1:'Только чтение',tr2:'Данные только на телефоне',tr3:'Без рекламы',
  fl1:'☕ Кофе: −1 060 ₴ / мес',fl2:'🔔 Netflix подорожал',fl3:'🏆 Новая награда',
  m_left:'Можно ещё потратить в ноябре',m_day:'≈ 785 ₴ в день',m_less:'Где можно меньше',m_t1:'Glovo чаще обычного',m_t2:'Кофе каждый день',
  feat_t:'Что умеет kopi',feat_s:'Всё, чтобы видеть свои деньги и тратить спокойно.',
- f1:'Банки и Wallet',f1d:'monobank — напрямую с телефона, другие банки — импортом выписки, Apple Pay и Google Pay — любые карты.',
+ f1:'Банки и Wallet',f1d:'monobank — напрямую с телефона, Apple Pay — через «Команды» с любой картой, другие банки — импортом выписки CSV или Excel.',
  f2:'Советы по магазинам',f2d:'Показывает, где именно тратишь больше обычного и сколько сохранишь, если вернёшься к привычному ритму.',
  f3:'Подписки под контролем',f3d:'Сам находит регулярные платежи, замечает подорожания и дубли сервисов.',
  f4:'Прогноз и погода кошелька',f4d:'Сколько будет потрачено к концу месяца и уложишься ли в лимит.',
- f5:'Челленджи и награды',f5d:'14 челленджей, 20 наград и монеты, которые меняются на темы, иконки и стикеры.',
+ f5:'Челленджи и награды',f5d:'Челленджи по твоим покупкам, достижения и монеты, которые меняются на темы для главной.',
  f6:'Сторис о твоих деньгах',f6d:'Итоги недели и месяца, интересные факты и совет дня — коротко и с юмором.',
  how_t:'Как это работает',how_s:'Три шага — и kopi уже считает.',
  s1:'Войди через Google',s1d:'Google нужен для резервной копии в твоём Google Диске. А открывается kopi кодом из 6 цифр, на Android — ещё и отпечатком.',
@@ -243,7 +281,7 @@ ru:{a6:'Чтобы хранить зашифрованную копию в тв�
  sec_t:'Твои данные — твои',sec_s:'Безопасность заложена с первого дня, а не добавлена потом.',
  sc1:'Доступ к банкам только на чтение',sc2:'Шифрование AES-256 прямо на телефоне',sc3:'Без сервера kopi: копия — только в твоём Google Диске',sc4:'Код, Face ID и отпечаток',sc5:'Без рекламы и продажи данных',
  dl_t:'Скачать kopi',dl_s:'Android — приложение (APK), iPhone — веб-версия с Командами.',
- dl_h:'kopi для Android',dl_p:'Для Android 8.0 и новее, включая Samsung Galaxy.',dl_meta:'kopi-0.1.0.apk · контрольная сумма SHA-256 — на странице релиза',
+ dl_h:'kopi для Android',dl_p:'Для Android 8.0 и новее, включая Samsung Galaxy.',dl_meta:'Последняя версия · контрольная сумма SHA-256 — на странице релиза',
  hw_t:'Как установить APK',hw1:'Скачай файл на телефон',hw2:'Открой его и разреши установку из этого источника',hw3:'Нажми «Установить» и открой kopi',
  hw_n:'Скачивай APK только с этой страницы — так ты точно получишь настоящий kopi.',
  ios_t:'iPhone — уже сейчас',ios_d:'Открой веб-версию в Safari и добавь Команду «Wallet»: после каждой оплаты Apple Pay она открывает kopi с уже заполненной суммой и магазином (iOS 17 и новее).',

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kopi-ua.github.io/sitemap.xml
